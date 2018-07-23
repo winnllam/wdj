@@ -24,8 +24,9 @@ class PersonHandler(webapp2.RequestHandler):
         person = model.Person()
         person.name = self.request.get("name")
         person.college = self.request.get("college")
+        person.highschool = self.request.get("highschool")
         person.put()
-        self.response.write("Saved!")
+        self.response.write("Saved!")        
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler), # asking for slash, construct main handlers
