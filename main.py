@@ -1,6 +1,7 @@
 import jinja2
 import os
 import webapp2
+import model
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
@@ -19,10 +20,15 @@ class SignUpHandler(webapp2.RequestHandler):
         self.response.write(html)
 
 class PersonHandler(webapp2.RequestHandler):
-    def get(self):
-        ### create models
+    def post(self):
+        person = model.Person()
+        person.name = self.request.get("name")
+        person.college = self.request.get("college")
+        person.put()
+        self.response.write("Saved!")
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler), # asking for slash, construct main handlers
     ('/signup', SignUpHandler),
+    ('/profile', PersonHandler)
 ], debug = True)
