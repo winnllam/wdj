@@ -20,7 +20,7 @@ class SignUpHandler(webapp2.RequestHandler):
         self.response.write(html)
 
 class PersonHandler(webapp2.RequestHandler):
-    def get(self):
+    def post(self):
         person = model.Person()
         person.name = self.request.get("name")
         person.college = self.request.get("college")
