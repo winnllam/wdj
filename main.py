@@ -29,10 +29,9 @@ class PersonHandler(webapp2.RequestHandler):
 
 class PersonFile(webapp2.RequestHandler):
     def get(self):
-        person_query = model.Person.query().order(-model.Person.age) # query is like a question // .order alphabetizes
-    #    person_query = model.Person.query().filter(model.Person.name == "Lucy") # filters for specific things
-        all_people = person_query.fetch()       #-model.Person.age for age oldest to youngest
-        list_template = jinja_env.get_template('templates/signup.html')
+        person_query = model.Person.query()
+        all_people = person_query.fetch()
+        list_template = jinja_env.get_template('templates/profile.html')
         html = list_template.render({
             "people": all_people
         })
