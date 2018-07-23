@@ -25,10 +25,22 @@ class PersonHandler(webapp2.RequestHandler):
         person.name = self.request.get("name")
         person.college = self.request.get("college")
         person.put()
-        self.response.write("Saved!")
+    #    self.response.write("Saved!")
+
+class PersonFile(webapp2.RequestHandler):
+    def get(self):
+        person_query = model.Person.query().order(-model.Person.age) # query is like a question // .order alphabetizes
+    #    person_query = model.Person.query().filter(model.Person.name == "Lucy") # filters for specific things
+        all_people = person_query.fetch()       #-model.Person.age for age oldest to youngest
+        list_template = jinja_env.get_template('templates/signup.html')
+        html = list_template.render({
+            "people": all_people
+        })
+        self.response.write(html)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler), # asking for slash, construct main handlers
     ('/signup', SignUpHandler),
-    ('/profile', PersonHandler)
+    ('/profile', PersonHandler),
+    ('/profile/user', PersonFile)
 ], debug = True)
