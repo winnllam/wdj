@@ -12,7 +12,9 @@
 
     var flightPlanCoordinates = [
       {lat: 26.211016, lng: -98.352488},
-      {lat: 42.3601, lng: -71.0942}
+      // highschool latlong
+      {lat: 42.3601, lng: -71.0942}       
+      // college latlong
 
 
     ];
