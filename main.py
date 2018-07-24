@@ -16,9 +16,14 @@ class MainHandler(webapp2.RequestHandler):
 class MapHandler(webapp2.RequestHandler):
     def get(self):
         Arc_Main_template = jinja_env.get_template('templates/ArcMain.html')
-        html = Arc_Main_template.render({
-        
-        })
+        # query = model.Person.query().filter(model.Person.username == self.request.get("username"))
+        # student = query.get()
+        html = Arc_Main_template.render(
+            # "lat1": student.lat1,
+            # "long1": student.long1,
+            # "lat2": student.lat2,
+            # "long2": student.long2
+        )
         self.response.write(html)
 
 class SignUpHandler(webapp2.RequestHandler):
