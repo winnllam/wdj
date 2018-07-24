@@ -3,10 +3,10 @@
     <title></title>
   </head>
   <body>
-    <h1>Student List</h1>
-    <h2>Here are the students signed up:</h2>
+    <h1> <center> Student List</h1>
+    <h2>  <center> Here are the students who signed up:</h2>
     {% for person in people %} <!-- for loop in html -->
-      <p>{{ person.name }} graduated from {{ person.highschool }} and is going to {{ person.college }}.</p>
+      <p>  <center> {{ person.name }} graduated from {{ person.highschool }} and is going to {{ person.college }}.</p>
     {% endfor %}
   </body>
 </html>
