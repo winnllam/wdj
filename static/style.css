@@ -1,0 +1,21 @@
+<link
+
+.custom-select {
+  position: center;
+  font-family: Arial;
+}
+
+.custom-selected {
+  background-color: Blue
+  color: white ;
+}
+
+body {
+    background-image: url("paper.gif");
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+}
+/*
