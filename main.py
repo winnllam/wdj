@@ -39,7 +39,7 @@ class PersonHandler(webapp2.RequestHandler):
         person.college = self.request.get("college")
         person.long1 = float(self.request.get("long1"))
         person.lat1 = float(self.request.get("lat1"))
-        person.highschool = self.request.get("highschool")
+        person.highschool = self.request.get("High School Select")
         person.long2 = float(self.request.get("long2"))
         person.lat2 = float(self.request.get("lat2"))
         key=person.put()
@@ -100,7 +100,7 @@ class RetrieveCollege(webapp2.RequestHandler):
         self.response.write(html)
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),
+    ('/', MainHandler), # asking for slash, construct main handlers
     ('/signup', SignUpHandler),
     ('/profile', PersonHandler),
     ('/profile/user', PersonFile),
