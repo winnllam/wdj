@@ -33,7 +33,7 @@ class PersonHandler(webapp2.RequestHandler):
         person.highschool = self.request.get("highschool")
         person.put()
         self.response.write("Profile created!")
-        self.response.write("<html><body><a href=""google.com"">List of Users</a></body></html>")
+        self.response.write(<html><body><a href=""google.com"">List of Users</a></body></html>")
 
 class PersonFile(webapp2.RequestHandler):
     def get(self):
@@ -50,5 +50,5 @@ app = webapp2.WSGIApplication([
     ('/signup', SignUpHandler),
     ('/profile', PersonHandler),
     ('/profile/user', PersonFile),
-    ('/map', MapHandeler)
+    ('/map', MapHandler)
 ], debug = True)

@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>Project Fuzzy Pineapple: Person</title>
+  </head>
+  <body>
+    <h1>Student List</h1>
+    <h2>Here are the students signed up:</h2>
+
+    {% for person in people %} <!-- for loop in html -->
+      <p>{{ person.name }}, {{ person.college }}</p>
+    {% endfor %}
+  </body>
+</html>
