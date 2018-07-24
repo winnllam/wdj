@@ -10,21 +10,33 @@
       mapTypeId: 'terrain'
     });
 
-    var flightPlanCoordinates = [
+    var flightPlanCoordinates1 = [
       {lat: 26.211016, lng: -98.352488},
       // highschool latlong
-      {lat: 42.3601, lng: -71.0942}       
+      {lat: 42.3601, lng: -71.0942}
       // college latlong
-
-
     ];
+    // var flightPlanCoordinates2 = [
+    //   {lat: 22.211016, lng: -98.352488},
+    //   // highschool latlong
+    //   {lat: 42.3601, lng: -71.0942}
+    //   // college latlong
+    // ];
     var flightPath = new google.maps.Polyline({
-      path: flightPlanCoordinates,
+      path: flightPlanCoordinates1,
       geodesic: true,
       strokeColor: '#FF0000',
       strokeOpacity: 1.0,
       strokeWeight: 2
     });
-
+    // var flightPath2 = new google.maps.Polyline({
+    //   path: flightPlanCoordinates2,
+    //   geodesic: true,
+    //   strokeColor: '#00FF00',
+    //   strokeOpacity: 1.0,
+    //   strokeWeight: 2
+    // });
     flightPath.setMap(map);
+    // flightPath2.setMap(map);
+
   }

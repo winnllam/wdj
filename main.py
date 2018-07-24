@@ -13,6 +13,12 @@ class MainHandler(webapp2.RequestHandler):
         html = main_template.render()
         self.response.write(html)
 
+class MapHandler(webapp2.RequestHandler):
+    def get(self):
+        Arc_Main_template = jinja_env.get_template('templates/ArcMain.html')
+        html = Arc_Main_template.render()
+        self.response.write(html)
+
 class SignUpHandler(webapp2.RequestHandler):
     def get(self):
         sign_up_template = jinja_env.get_template('templates/signup.html')
@@ -22,10 +28,16 @@ class SignUpHandler(webapp2.RequestHandler):
 class PersonHandler(webapp2.RequestHandler):
     def post(self):
         person = model.Person()
+        person.username = self.request.get("username")
         person.name = self.request.get("name")
         person.college = self.request.get("college")
+        person.long1 = self.request.get("long1")
+        person.lat1 = self.request.get("lat1")
         person.highschool = self.request.get("highschool")
+        person.long2 = self.request.get("long2")
+        person.lat2 = self.request.get("lat2")
         person.put()
+        self.response.write("Profile created!")
 
 class PersonFile(webapp2.RequestHandler):
     def get(self):
@@ -37,9 +49,17 @@ class PersonFile(webapp2.RequestHandler):
         })
         self.response.write(html)
 
+class LoginHandler(webapp2.RequestHandler):
+    def get(self):
+        login_template = jinja_env.get_template('templates/login.html')
+        html = login_template.render()
+        self.response.write(html)
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler), # asking for slash, construct main handlers
     ('/signup', SignUpHandler),
     ('/profile', PersonHandler),
-    ('/profile/user', PersonFile)
+    ('/profile/user', PersonFile),
+    ('/login', LoginHandler),
+    ('/map', MapHandler)
 ], debug = True)
