@@ -55,11 +55,24 @@ class LoginHandler(webapp2.RequestHandler):
         html = login_template.render()
         self.response.write(html)
 
+class Retrieve(webapp2.RequestHandler):
+    def get(self):
+        query = model.Person.query().filter(model.Person.username == self.request.get("username"))
+        student = query.get()
+        user_template = jinja_env.get_template('templates/userprofile.html')
+        html = user_template.render({
+            "name": student.name,
+            "highschool": student.highschool,
+            "college": student.college
+        })
+        self.response.write(html)
+
 app = webapp2.WSGIApplication([
-    ('/', MainHandler), # asking for slash, construct main handlers
+    ('/', MainHandler),
     ('/signup', SignUpHandler),
     ('/profile', PersonHandler),
     ('/profile/user', PersonFile),
     ('/login', LoginHandler),
+    ('/userprofile', Retrieve),
     ('/map', MapHandler)
 ], debug = True)
