@@ -16,7 +16,9 @@ class MainHandler(webapp2.RequestHandler):
 class MapHandler(webapp2.RequestHandler):
     def get(self):
         Arc_Main_template = jinja_env.get_template('templates/ArcMain.html')
-        html = Arc_Main_template.render()
+        html = Arc_Main_template.render({
+        
+        })
         self.response.write(html)
 
 class SignUpHandler(webapp2.RequestHandler):
@@ -36,9 +38,9 @@ class PersonHandler(webapp2.RequestHandler):
         person.highschool = self.request.get("High School Select")
         person.long2 = float(self.request.get("long2"))
         person.lat2 = float(self.request.get("lat2"))
-        person.put()
+        key=person.put()
         self.response.write("Profile created!")
-
+        print(key.get())
 class PersonFile(webapp2.RequestHandler):
     def get(self):
         person_query = model.Person.query()
