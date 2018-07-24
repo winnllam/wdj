@@ -13,6 +13,12 @@ class MainHandler(webapp2.RequestHandler):
         html = main_template.render()
         self.response.write(html)
 
+class MapHandler(webapp2.RequestHandler):
+    def get(self):
+        main_template = jinja_env.get_template('templates/ArcMain.html')
+        html = Arc_Main_template.render()
+        self.response.write(html)
+
 class SignUpHandler(webapp2.RequestHandler):
     def get(self):
         sign_up_template = jinja_env.get_template('templates/signup.html')
@@ -43,5 +49,6 @@ app = webapp2.WSGIApplication([
     ('/', MainHandler), # asking for slash, construct main handlers
     ('/signup', SignUpHandler),
     ('/profile', PersonHandler),
-    ('/profile/user', PersonFile)
+    ('/profile/user', PersonFile),
+    ('/map', MapHandeler)
 ], debug = True)
