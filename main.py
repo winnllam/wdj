@@ -26,6 +26,8 @@ class PersonHandler(webapp2.RequestHandler):
         person.college = self.request.get("college")
         person.highschool = self.request.get("highschool")
         person.put()
+        self.response.write("Profile created!")
+        self.response.write("<html><body><a href=""google.com"">List of Users</a></body></html>")
 
 class PersonFile(webapp2.RequestHandler):
     def get(self):
