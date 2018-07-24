@@ -15,7 +15,7 @@ class MainHandler(webapp2.RequestHandler):
 
 class MapHandler(webapp2.RequestHandler):
     def get(self):
-        main_template = jinja_env.get_template('templates/ArcMain.html')
+        Arc_Main_template = jinja_env.get_template('templates/ArcMain.html')
         html = Arc_Main_template.render()
         self.response.write(html)
 
@@ -50,5 +50,5 @@ app = webapp2.WSGIApplication([
     ('/signup', SignUpHandler),
     ('/profile', PersonHandler),
     ('/profile/user', PersonFile),
-    ('/map', MapHandeler)
+    ('/map', MapHandler)
 ], debug = True)
