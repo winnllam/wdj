@@ -11,9 +11,9 @@
     });
 
     var flightPlanCoordinates1 = [
-      {lat: 26.211016, lng: -98.352488},
+      {lat: 22, lng: -21},
       // highschool latlong
-      {lat: 42.3601, lng: -71.0942}
+      {lat: 34.121, lng: 23.1221}
       // college latlong
     ];
     // var flightPlanCoordinates2 = [

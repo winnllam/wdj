@@ -3,6 +3,10 @@ import os
 import webapp2
 import model
 
+currentUser = "" # stores the username of the current user
+currentHighschool = ""
+currentCollege = ""
+
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
 )
@@ -17,7 +21,7 @@ class MapHandler(webapp2.RequestHandler):
     def get(self):
         Arc_Main_template = jinja_env.get_template('templates/ArcMain.html')
         html = Arc_Main_template.render({
-        
+
         })
         self.response.write(html)
 
@@ -41,6 +45,7 @@ class PersonHandler(webapp2.RequestHandler):
         key=person.put()
         self.response.write("Profile created!")
         print(key.get())
+
 class PersonFile(webapp2.RequestHandler):
     def get(self):
         person_query = model.Person.query()
@@ -57,15 +62,40 @@ class LoginHandler(webapp2.RequestHandler):
         html = login_template.render()
         self.response.write(html)
 
-class Retrieve(webapp2.RequestHandler):
+class RetrieveProfile(webapp2.RequestHandler):
     def get(self):
+        currentUser = self.request.get("username") ### going back to the page for the 2nd time doesnt work :(((((
         query = model.Person.query().filter(model.Person.username == self.request.get("username"))
         student = query.get()
         user_template = jinja_env.get_template('templates/userprofile.html')
+
+        currentHighschool = student.highschool
+        currentCollege = student.college
+
         html = user_template.render({
             "name": student.name,
             "highschool": student.highschool,
             "college": student.college
+        })
+        self.response.write(html)
+
+class RetrieveHighschool(webapp2.RequestHandler):
+    def get(self):
+        query = model.Person.query().filter(model.Person.highschool == self.request.get("highschool"))
+        school = query.fetch()
+        list_template = jinja_env.get_template('templates/highschool.html')
+        html = list_template.render({
+            "highschool": school
+        })
+        self.response.write(html)
+
+class RetrieveCollege(webapp2.RequestHandler):
+    def get(self):
+        query = model.Person.query().filter(model.Person.college == self.request.get("college"))
+        school = query.fetch()
+        list_template = jinja_env.get_template('templates/college.html')
+        html = list_template.render({
+            "college": school
         })
         self.response.write(html)
 
@@ -75,6 +105,8 @@ app = webapp2.WSGIApplication([
     ('/profile', PersonHandler),
     ('/profile/user', PersonFile),
     ('/login', LoginHandler),
-    ('/userprofile', Retrieve),
+    ('/userprofile', RetrieveProfile),
+    ('/highschool', RetrieveHighschool),
+    ('/college', RetrieveCollege),
     ('/map', MapHandler)
 ], debug = True)
