@@ -36,9 +36,14 @@ class PersonHandler(webapp2.RequestHandler):
         person.highschool = self.request.get("highschool")
         person.city1 = self.request.get("city1")
         person.state1 = self.request.get("state1")
+        person.hslat = 0.0
+        person.hslong = 0.0
         person.college = self.request.get("college")
         person.city2 = self.request.get("city2")
         person.state2 = self.request.get("state2")
+        person.collat = 0.0
+        person.collong = 0.0
+
         person.put()
     #    key=person.put()
         self.response.write("Profile created!")
