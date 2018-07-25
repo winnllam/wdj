@@ -65,7 +65,7 @@ class Personlatlong(webapp2.RequestHandler):
                 "lat1":person.lat1,
                 "long1":person.long1,
                 "lat2":person.lat2,
-                "long2":person.long2
+                "long2":person.long2 ##swap long snd lat
                 })
             return latlong
         person_dictionaries= persontodict(all_people)
