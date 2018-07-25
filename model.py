@@ -6,9 +6,13 @@ class Person(ndb.Model):
     highschool = ndb.StringProperty(required = True)
     city1 = ndb.StringProperty(required = True)
     state1 = ndb.StringProperty(required = True)
+    hslat = ndb.FloatProperty(required = True)
+    hslong = ndb.FloatProperty(required = True)
     college = ndb.StringProperty(required = True)
     city2 = ndb.StringProperty(required = True)
     state2 = ndb.StringProperty(required = True)
+    collat = ndb.FloatProperty(required = True)
+    collong = ndb.FloatProperty(required = True)
     def toJSON(self):
         return json.dumps(self, default=lambda o: o.__dict__,
             sort_keys=True, indent=4)
