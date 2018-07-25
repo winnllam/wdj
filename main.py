@@ -47,7 +47,7 @@ class PersonFile(webapp2.RequestHandler):
     def get(self):
         person_query = model.Person.query()
         all_people = person_query.fetch()
-        list_template = jinja_env.get_template('templates/profile.html')
+        list_template = jinja_env.get_template('templates/list.html')
         html = list_template.render({
             "people": all_people
         })
@@ -65,7 +65,7 @@ class Personlatlong(webapp2.RequestHandler):
                 "lat1":person.lat1,
                 "long1":person.long1,
                 "lat2":person.lat2,
-                "long2":person.long2 ##swap long snd lat
+                "long2":person.long2
                 })
             return latlong
         person_dictionaries= persontodict(all_people)
@@ -82,7 +82,7 @@ class RetrieveProfile(webapp2.RequestHandler):
     def get(self):
         query = model.Person.query().filter(model.Person.username == self.request.get("username"))
         student = query.get()
-        user_template = jinja_env.get_template('templates/userprofile.html')
+        user_template = jinja_env.get_template('templates/profile.html')
 
         html = user_template.render({
             "name": student.name,
@@ -120,12 +120,12 @@ class RetrieveCollege(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler), # asking for slash, construct main handlers
     ('/signup', SignUpHandler),
-    ('/profile', PersonHandler),
+    ('/list', PersonHandler),
     ('/profile/user', PersonFile),
     ('/login', LoginHandler),
     ('/map', MapHandler),
     ('/latlong', Personlatlong),
-    ('/userprofile', RetrieveProfile),
+    ('/profile', RetrieveProfile),
     ('/highschool', RetrieveHighschool),
     ('/college', RetrieveCollege),
     ('/map', MapHandler)
