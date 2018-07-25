@@ -33,15 +33,16 @@ class PersonHandler(webapp2.RequestHandler):
         person = model.Person()
         person.email = self.request.get("email")
         person.name = self.request.get("name")
-        person.college = self.request.get("college")
+        person.highschool = self.request.get("highschool")
         person.long1 = float(self.request.get("long1"))
         person.lat1 = float(self.request.get("lat1"))
-        person.highschool = self.request.get("High School Select") # remove select
+        person.college = self.request.get("college")
         person.long2 = float(self.request.get("long2"))
         person.lat2 = float(self.request.get("lat2"))
-        key=person.put()
+        person.put()
+    #    key=person.put()
         self.response.write("Profile created!")
-        print(key.get())
+    #    print(key.get())
 
 class PersonFile(webapp2.RequestHandler):
     def get(self):
