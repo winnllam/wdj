@@ -5,23 +5,7 @@
 
 </head>
 <body>
-<<<<<<< HEAD
-  <h1>Sign Up</h1>
-  <form action="/profile" method="post"> <!-- go to profile page or the map after -->
-    <div>Username: <input type="text" name="username"></div>
-    <div>Name: <input type="text" name="name"></div>
-    <div>High School: <input type="text" name="highschool"></div>
-    <div>Longitute: <input type="text" name="long1"></div>
-    <div>Latitude: <input type="text" name="lat1"></div>
-    <div>College: <input type="text" name="college"></div>
-    <div>Longitute: <input type="text" name="long2"></div>
-    <div>Latitude: <input type="text" name="lat2"></div>
-    <div style="border: 1px solid blue;">
-    Area 1 (for example a sidebar)
-    <gcse:searchbox></gcse:searchbox>
-</div>
 
-=======
   <h1>QUAD PLUS</h1>
   <h2>"Earn your Freshman 15 in friends and not pounds"</h2>
   <h3>Sign Up</h3>
@@ -52,9 +36,20 @@
     <div class="form">College Name: <input type="text" name="college"></div>
     <div class="form">College Latitude: <input type="text" name="lat2"></div>
     <div class="form">College Longitute: <input type="text" name="long2"></div>
->>>>>>> 192c26842beabb2181930342dede6d16b15c5c68
-
     <input id=submit type="submit" value="I'm ready to join Quad!">
+  </form>
+  
+  <form method="get" action="http://www.google.com/search">
+    <div style="border:2px dotted black;padding:4px;width:15em;">
+      <table border="0" align="center" cellpadding="0">
+      <tr><td>
+      <input type="text"   name="q" size="25" style="color:#808080;"
+        maxlength="255" value="Google site search"
+          onfocus="if(this.value==this.defaultValue)this.value=''; this.style.color='black';" onblur="if(this.value=='')this.value=this.defaultValue; "/>
+        <input type="submit" value="Go!" />
+        <input type="hidden" name="sitesearch" value="" /></td></tr>
+      </table>
+    </div>
   </form>
 </body>
 </html>

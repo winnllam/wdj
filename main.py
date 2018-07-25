@@ -3,6 +3,7 @@ import os
 import webapp2
 import model
 from webapp2_extras import json
+import requests
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
@@ -34,11 +35,11 @@ class PersonHandler(webapp2.RequestHandler):
         person.email = self.request.get("email")
         person.name = self.request.get("name")
         person.highschool = self.request.get("highschool")
-        person.long1 = float(self.request.get("long1"))
-        person.lat1 = float(self.request.get("lat1"))
+        person.highschoolcity = float(self.request.get("highschoolcity"))
+        person.highschoolstate = float(self.request.get("highschoolstate"))
         person.college = self.request.get("college")
-        person.long2 = float(self.request.get("long2"))
-        person.lat2 = float(self.request.get("lat2"))
+        person.collgecity = float(self.request.get("collegecity"))
+        person.collegestate = float(self.request.get("collegestate"))
         person.put()
     #    key=person.put()
         self.response.write("Profile created!")

@@ -4,11 +4,11 @@ class Person(ndb.Model):
     email = ndb.StringProperty(required = True)
     name = ndb.StringProperty(required = True)
     college = ndb.StringProperty(required = True)
-    long1 = ndb.FloatProperty(required = True)
-    lat1 = ndb.FloatProperty(required = True)
+    collegecity = ndb.FloatProperty(required = True)
+    collegestate = ndb.FloatProperty(required = True)
     highschool = ndb.StringProperty(required = True)
-    long2 = ndb.FloatProperty(required = True)
-    lat2 = ndb.FloatProperty(required = True)
+    highschoolcity = ndb.FloatProperty(required = True)
+    highschoolstate = ndb.FloatProperty(required = True)
     def toJSON(self):
         return json.dumps(self, default=lambda o: o.__dict__,
             sort_keys=True, indent=4)

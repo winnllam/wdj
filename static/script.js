@@ -9,7 +9,7 @@ function httpGet(theUrl) {
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 3,
-    center: {lat: 0, lng: -180},
+    center: {lat: 0, lng: 0},
     mapTypeId: 'terrain'
   });
   const pairs = httpGet("/latlong")
