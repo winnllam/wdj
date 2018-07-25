@@ -71,7 +71,14 @@ class Personlatlong(webapp2.RequestHandler):
             return latlong
         person_dictionaries= persontodict(all_people)
         self.response.write(json.encode(person_dictionaries))
-
+        # def names(all_people):
+        #     peoplestrig=[]
+        #     for person in all_people:
+        #         peoplestrig.appen({
+        #         "":person.
+        #         "":
+        #         "":
+        #         })
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
