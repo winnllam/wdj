@@ -1,21 +1,62 @@
-<link
-
-.custom-select {
+/*.custom-select {
   position: center;
+  text-align: center;
   font-family: Arial;
 }
 
-.custom-selected {
+.custom-select {
   background-color: Blue
-  color: white ;
-}
+  color: white;
+  text-align: center;
+} */
 
 body {
-    background-image: url("paper.gif");
+    background-image: url("https://www.evms.edu/media/evms_public/departments/health_professions/medical_masters/mm-placements.png ");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.responsive {
+h1 {
+    text-align: center;
+    font-size: 100px;
+    margin-top: 4%;
+    font-family: Impact;
+}
+
+h2 {
+    text-align: center;
+    font-size: 40px;
+    font-family: Arial;
+    font-style: italic;
+    margin-top: 4%;
+}
+
+h3 {
+    text-align: center;
+    font-size: 35px;
+    font-family: Arial;
+    text-decoration: underline;
+}
+
+.custom-select {
+margin-left: 450;
+font-size: 20px;
+}
+
+.form {
+    font-size: 30px;
+    margin-left: 450;
+}
+
+#submit {
+  font-size: 40px;
+  margin-left: 450;
+  -webkit-appearance: button;
+
+}
+
+/*.responsive {
     width: 100%;
     height: auto;
 }
-/*

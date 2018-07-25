@@ -6,8 +6,8 @@
     <h1>Students at {{ highschool }}</h1>
     <h2>Here are the students signed up:</h2>
     {% for person in highschoolList %} <!-- for loop in html -->
-      <p>{{ person.name }} is going to {{ person.college }}.</p>
+      <p>{{ person.name }} is going to {{ person.college }}. Connect: {{ email }}</p>
     {% endfor %}
-    <a href="/userprofile?username={{username}}">Go back to Profile</a>
+    <a href="/profile?email={{email}}">Go back to Profile</a>
   </body>
 </html>
