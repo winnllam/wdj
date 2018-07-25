@@ -41,10 +41,7 @@ class PersonHandler(webapp2.RequestHandler):
         person.lat2 = float(self.request.get("lat2"))
         key=person.put()
         self.response.write("Profile created!")
-<<<<<<< HEAD
-=======
         print(key.get())
->>>>>>> d46e365ffaf951924dbc5929075b20f538c25682
 
 class PersonFile(webapp2.RequestHandler):
     def get(self):
@@ -73,7 +70,14 @@ class Personlatlong(webapp2.RequestHandler):
             return latlong
         person_dictionaries= persontodict(all_people)
         self.response.write(json.encode(person_dictionaries))
-
+        # def names(all_people):
+        #     peoplestrig=[]
+        #     for person in all_people:
+        #         peoplestrig.appen({
+        #         "":person.
+        #         "":
+        #         "":
+        #         })
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
@@ -126,13 +130,10 @@ app = webapp2.WSGIApplication([
     ('/profile', PersonHandler),
     ('/profile/user', PersonFile),
     ('/login', LoginHandler),
-<<<<<<< HEAD
     ('/map', MapHandler),
-    ('/latlong', Personlatlong)
-=======
+    ('/latlong', Personlatlong),
     ('/userprofile', RetrieveProfile),
     ('/highschool', RetrieveHighschool),
     ('/college', RetrieveCollege),
     ('/map', MapHandler)
->>>>>>> d46e365ffaf951924dbc5929075b20f538c25682
 ], debug = True)
