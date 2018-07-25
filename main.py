@@ -3,10 +3,6 @@ import os
 import webapp2
 import model
 
-currentUser = "" # stores the username of the current user
-currentHighschool = ""
-currentCollege = ""
-
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
 )
@@ -64,13 +60,9 @@ class LoginHandler(webapp2.RequestHandler):
 
 class RetrieveProfile(webapp2.RequestHandler):
     def get(self):
-        currentUser = self.request.get("username") ### going back to the page for the 2nd time doesnt work :(((((
         query = model.Person.query().filter(model.Person.username == self.request.get("username"))
         student = query.get()
         user_template = jinja_env.get_template('templates/userprofile.html')
-
-        currentHighschool = student.highschool
-        currentCollege = student.college
 
         html = user_template.render({
             "name": student.name,
@@ -87,7 +79,8 @@ class RetrieveHighschool(webapp2.RequestHandler):
         list_template = jinja_env.get_template('templates/highschool.html')
         html = list_template.render({
             "highschool": student.highschool,
-            "highschoolList": school
+            "highschoolList": school,
+            "username": student.username
         })
         self.response.write(html)
 
@@ -99,7 +92,8 @@ class RetrieveCollege(webapp2.RequestHandler):
         list_template = jinja_env.get_template('templates/college.html')
         html = list_template.render({
             "college": student.college,
-            "collegeList": school
+            "collegeList": school,
+            "username": student.username
         })
         self.response.write(html)
 
