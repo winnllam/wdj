@@ -122,7 +122,7 @@ app = webapp2.WSGIApplication([
     ('/', MainHandler), # asking for slash, construct main handlers
     ('/signup', SignUpHandler),
     ('/list', PersonHandler),
-    ('/profile/user', PersonFile),
+    ('/list/users', PersonFile),
     ('/login', LoginHandler),
     ('/map', MapHandler),
     ('/latlong', Personlatlong),
