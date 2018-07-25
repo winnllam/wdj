@@ -83,9 +83,11 @@ class RetrieveHighschool(webapp2.RequestHandler):
     def get(self):
         query = model.Person.query().filter(model.Person.highschool == self.request.get("highschool"))
         school = query.fetch()
+        student = query.get()
         list_template = jinja_env.get_template('templates/highschool.html')
         html = list_template.render({
-            "highschool": school
+            "highschool": student.highschool,
+            "highschoolList": school
         })
         self.response.write(html)
 
@@ -93,9 +95,11 @@ class RetrieveCollege(webapp2.RequestHandler):
     def get(self):
         query = model.Person.query().filter(model.Person.college == self.request.get("college"))
         school = query.fetch()
+        student = query.get()
         list_template = jinja_env.get_template('templates/college.html')
         html = list_template.render({
-            "college": school
+            "college": student.college,
+            "collegeList": school
         })
         self.response.write(html)
 
