@@ -17,14 +17,9 @@ class MainHandler(webapp2.RequestHandler):
 class MapHandler(webapp2.RequestHandler):
     def get(self):
         Arc_Main_template = jinja_env.get_template('templates/ArcMain.html')
-        # query = model.Person.query().filter(model.Person.username == self.request.get("username"))
-        # student = query.get()
-        html = Arc_Main_template.render(
-            # "lat1": student.lat1,
-            # "long1": student.long1,
-            # "lat2": student.lat2,
-            # "long2": student.long2
-        )
+        html = Arc_Main_template.render({
+
+        })
         self.response.write(html)
 
 class SignUpHandler(webapp2.RequestHandler):
@@ -46,6 +41,10 @@ class PersonHandler(webapp2.RequestHandler):
         person.lat2 = float(self.request.get("lat2"))
         key=person.put()
         self.response.write("Profile created!")
+<<<<<<< HEAD
+=======
+        print(key.get())
+>>>>>>> d46e365ffaf951924dbc5929075b20f538c25682
 
 class PersonFile(webapp2.RequestHandler):
     def get(self):
@@ -82,12 +81,58 @@ class LoginHandler(webapp2.RequestHandler):
         html = login_template.render()
         self.response.write(html)
 
+class RetrieveProfile(webapp2.RequestHandler):
+    def get(self):
+        query = model.Person.query().filter(model.Person.username == self.request.get("username"))
+        student = query.get()
+        user_template = jinja_env.get_template('templates/userprofile.html')
+
+        html = user_template.render({
+            "name": student.name,
+            "highschool": student.highschool,
+            "college": student.college
+        })
+        self.response.write(html)
+
+class RetrieveHighschool(webapp2.RequestHandler):
+    def get(self):
+        query = model.Person.query().filter(model.Person.highschool == self.request.get("highschool"))
+        school = query.fetch()
+        student = query.get()
+        list_template = jinja_env.get_template('templates/highschool.html')
+        html = list_template.render({
+            "highschool": student.highschool,
+            "highschoolList": school,
+            "username": student.username
+        })
+        self.response.write(html)
+
+class RetrieveCollege(webapp2.RequestHandler):
+    def get(self):
+        query = model.Person.query().filter(model.Person.college == self.request.get("college"))
+        school = query.fetch()
+        student = query.get()
+        list_template = jinja_env.get_template('templates/college.html')
+        html = list_template.render({
+            "college": student.college,
+            "collegeList": school,
+            "username": student.username
+        })
+        self.response.write(html)
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler), # asking for slash, construct main handlers
     ('/signup', SignUpHandler),
     ('/profile', PersonHandler),
     ('/profile/user', PersonFile),
     ('/login', LoginHandler),
+<<<<<<< HEAD
     ('/map', MapHandler),
     ('/latlong', Personlatlong)
+=======
+    ('/userprofile', RetrieveProfile),
+    ('/highschool', RetrieveHighschool),
+    ('/college', RetrieveCollege),
+    ('/map', MapHandler)
+>>>>>>> d46e365ffaf951924dbc5929075b20f538c25682
 ], debug = True)
