@@ -1,42 +1,47 @@
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET","/latlong", false ); // false for synchronous request
+    xmlHttp.send( null );
 
-  // This example creates a 2-pixel-wide red polyline showing the path of
-  // the first trans-Pacific flight between Oakland, CA, and Brisbane,
-  // Australia which was made by Charles Kingsford Smith.
+    return JSON.parse(xmlHttp.responseText);
 
+}
   function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 3,
       center: {lat: 0, lng: -180},
       mapTypeId: 'terrain'
     });
-
-    var flightPlanCoordinates1 = [
-      {lat: 26.211016, lng: -98.352488},
-      // highschool latlong
-      {lat: 42.3601, lng: -71.0942}
-      // college latlong
-    ];
-    // var flightPlanCoordinates2 = [
-    //   {lat: 22.211016, lng: -98.352488},
-    //   // highschool latlong
-    //   {lat: 42.3601, lng: -71.0942}
-    //   // college latlong
-    // ];
-    var flightPath = new google.maps.Polyline({
-      path: flightPlanCoordinates1,
-      geodesic: true,
-      strokeColor: '#FF0000',
-      strokeOpacity: 1.0,
-      strokeWeight: 2
-    });
-    // var flightPath2 = new google.maps.Polyline({
-    //   path: flightPlanCoordinates2,
-    //   geodesic: true,
-    //   strokeColor: '#00FF00',
-    //   strokeOpacity: 1.0,
-    //   strokeWeight: 2
-    // });
-    flightPath.setMap(map);
-    // flightPath2.setMap(map);
-
-  }
+    const pairs = httpGet("/latlong")
+    pairs.forEach((pair) =>{
+      var flightPlanCoordinates = [
+        {lat: pair.lat1, lng: pair.long1},
+        // highschool latlong
+        {lat: pair.lat2, lng: pair.long2}
+        // college latlong
+      ];
+      var flightPath = new google.maps.Polyline({
+        path: flightPlanCoordinates,
+        geodesic: true,
+        strokeColor: '#FF0000',
+        strokeOpacity: 1.0,
+        strokeWeight: 2
+      });
+      flightPath.setMap(map);
+    })
+      // var flightPlanCoordinates = [
+      //   {lat: 22, lng: -21},
+      //   // highschool latlong
+      //   {lat: 34.121, lng: 23}
+      //   // college latlong
+      // ];
+      // var flightPath = new google.maps.Polyline({
+      //   path: flightPlanCoordinates,
+      //   geodesic: true,
+      //   strokeColor: '#FF0000',
+      //   strokeOpacity: 1.0,
+      //   strokeWeight: 2
+      // });
+      // flightPath.setMap(map);
+}
