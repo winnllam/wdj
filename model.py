@@ -1,7 +1,7 @@
 from google.appengine.ext import ndb
-import json 
+import json
 class Person(ndb.Model):
-    username = ndb.StringProperty(required = True)
+    email = ndb.StringProperty(required = True)
     name = ndb.StringProperty(required = True)
     college = ndb.StringProperty(required = True)
     long1 = ndb.FloatProperty(required = True)

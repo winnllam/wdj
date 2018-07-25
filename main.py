@@ -31,12 +31,12 @@ class SignUpHandler(webapp2.RequestHandler):
 class PersonHandler(webapp2.RequestHandler):
     def post(self):
         person = model.Person()
-        person.username = self.request.get("username")
+        person.email = self.request.get("email")
         person.name = self.request.get("name")
         person.college = self.request.get("college")
         person.long1 = float(self.request.get("long1"))
         person.lat1 = float(self.request.get("lat1"))
-        person.highschool = self.request.get("High School Select")
+        person.highschool = self.request.get("High School Select") # remove select
         person.long2 = float(self.request.get("long2"))
         person.lat2 = float(self.request.get("lat2"))
         key=person.put()
@@ -80,7 +80,7 @@ class LoginHandler(webapp2.RequestHandler):
 
 class RetrieveProfile(webapp2.RequestHandler):
     def get(self):
-        query = model.Person.query().filter(model.Person.username == self.request.get("username"))
+        query = model.Person.query().filter(model.Person.email == self.request.get("email"))
         student = query.get()
         user_template = jinja_env.get_template('templates/profile.html')
 
@@ -100,7 +100,7 @@ class RetrieveHighschool(webapp2.RequestHandler):
         html = list_template.render({
             "highschool": student.highschool,
             "highschoolList": school,
-            "username": student.username
+            "email": student.email
         })
         self.response.write(html)
 
@@ -113,7 +113,7 @@ class RetrieveCollege(webapp2.RequestHandler):
         html = list_template.render({
             "college": student.college,
             "collegeList": school,
-            "username": student.username
+            "email": student.email
         })
         self.response.write(html)
 
