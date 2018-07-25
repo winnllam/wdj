@@ -2,6 +2,7 @@ import jinja2
 import os
 import webapp2
 import model
+from webapp2_extras import json
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
@@ -45,7 +46,7 @@ class PersonHandler(webapp2.RequestHandler):
         person.lat2 = float(self.request.get("lat2"))
         key=person.put()
         self.response.write("Profile created!")
-        print(key.get())
+
 class PersonFile(webapp2.RequestHandler):
     def get(self):
         person_query = model.Person.query()
@@ -55,6 +56,25 @@ class PersonFile(webapp2.RequestHandler):
             "people": all_people
         })
         self.response.write(html)
+
+class Personlatlong(webapp2.RequestHandler):
+    def get(self):
+        person_query = model.Person.query()
+        all_people = person_query.fetch()
+        self.response.headers['Content-Type'] = 'application/json'
+        def persontodict(all_people):
+            latlong=[]
+            for person in all_people:
+                latlong.append({
+                "lat1":person.lat1,
+                "long1":person.long1,
+                "lat2":person.lat2,
+                "long2":person.long2
+                })
+            return latlong
+        person_dictionaries= persontodict(all_people)
+        self.response.write(json.encode(person_dictionaries))
+
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
@@ -68,5 +88,6 @@ app = webapp2.WSGIApplication([
     ('/profile', PersonHandler),
     ('/profile/user', PersonFile),
     ('/login', LoginHandler),
-    ('/map', MapHandler)
+    ('/map', MapHandler),
+    ('/latlong', Personlatlong)
 ], debug = True)
