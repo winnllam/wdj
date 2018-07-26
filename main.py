@@ -97,13 +97,17 @@ class RetrieveProfile(webapp2.RequestHandler):
             "name": student.name,
             "highschool": student.highschool,
             "college": student.college,
-            "email": student.email
+            "email": student.email,
+            "collat": student.collat,
+            "collong": student.collong,
+            "hslat": student.hslat,
+            "hslong": student.hslong
         })
         self.response.write(html)
 # DISPLAY EVERYONE IN THE SAME HIGHSCHOOL
 class RetrieveHighschool(webapp2.RequestHandler):
     def get(self):
-        query = model.Person.query().filter(model.Person.highschool == self.request.get("highschool"))
+        query = model.Person.query().filter(model.Person.hslong == float(self.request.get("hslong")))
         school = query.fetch()
         student = query.get()
         list_template = jinja_env.get_template('templates/highschool.html')
@@ -116,7 +120,7 @@ class RetrieveHighschool(webapp2.RequestHandler):
 #DISPLAY EVERYONE IN THE SAME COLLEGE
 class RetrieveCollege(webapp2.RequestHandler):
     def get(self):
-        query = model.Person.query().filter(model.Person.college == self.request.get("college"))
+        query = model.Person.query().filter(model.Person.collong == float(self.request.get("collong")))
         school = query.fetch()
         student = query.get() ### based of long and lat
         list_template = jinja_env.get_template('templates/college.html')
@@ -138,4 +142,5 @@ app = webapp2.WSGIApplication([
     ('/profile', RetrieveProfile),
     ('/highschool', RetrieveHighschool),
     ('/college', RetrieveCollege),
+    ('/map', MapHandler)
 ], debug = True)
