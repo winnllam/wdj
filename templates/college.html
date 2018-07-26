@@ -6,7 +6,7 @@
     <h1>Students at {{ college }}</h1>
     <h2>Here are the students signed up:</h2>
     {% for person in collegeList %} <!-- for loop in html -->
-      <p>{{ person.name }} graduated from {{ person.highschool }}. Connect: {{ email }}</p> <!-- click link to see profile -->
+      <p>{{ person.name }} graduated from {{ person.highschool }}. <a href="/profile?email={{person.email}}">See Profile</a></p> <!-- click link to see profile -->
     {% endfor %}
     <a href="/profile?email={{email}}">Go back to Profile</a>
   </body>

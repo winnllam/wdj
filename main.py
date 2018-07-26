@@ -43,11 +43,8 @@ class PersonHandler(webapp2.RequestHandler):
         person.state2 = self.request.get("state2")
         person.collat = 0.0
         person.collong = 0.0
-
         person.put()
-    #    key=person.put()
-        self.response.write("Profile created!")
-    #    print(key.get())
+        self.response.write("<html><a href='/login'>Good to go! Login here</a></html>")
 
 class PersonFile(webapp2.RequestHandler):
     def get(self):
@@ -76,14 +73,6 @@ class Personlatlong(webapp2.RequestHandler):
             return latlong
         person_dictionaries= persontodict(all_people)
         self.response.write(json.encode(person_dictionaries))
-        # def names(all_people):
-        #     peoplestrig=[]
-        #     for person in all_people:
-        #         peoplestrig.appen({
-        #         "":person.
-        #         "":
-        #         "":
-        #         })
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
@@ -100,7 +89,8 @@ class RetrieveProfile(webapp2.RequestHandler):
         html = user_template.render({
             "name": student.name,
             "highschool": student.highschool,
-            "college": student.college
+            "college": student.college,
+            "email": student.email
         })
         self.response.write(html)
 
