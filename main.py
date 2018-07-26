@@ -3,6 +3,8 @@ import os
 import webapp2
 import model
 from webapp2_extras import json
+from google.appengine.api import urlfetch
+import json
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
