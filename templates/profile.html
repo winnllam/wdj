@@ -1,16 +1,18 @@
 <html>
   <head>
+    <link rel="stylesheet" href="../static/profiles.css">
     <title></title>
   </head>
   <body>
     <h1>{{ name }}</h1>
-      <p>Graduated from {{ highschool }} and is going to {{ college }}.</p>
-      <a href="/college?college={{college}}"> See people attending the same college</a>
-      <br>
-      <a href="/highschool?highschool={{highschool}}"> See people who attended the same high school</a>
-      <br><br>
-      <a href="/login"> Log Out</a>
-      <br>
-      <a href="https://maps.googleapis.com/maps/api/geocode/json?address={{highschool}},+{{city1}},+{{state1}}&key=AIzaSyDanzu3x3EEBjImVNBU_XZPqzcAK2b-mb4">Click me</a>
+    <p class="profileInfo">Graduated from {{ highschool }}.</p>
+    <p class="profileInfo">Will be going to {{ college }}.</p>
+    <p class="profileInfo"> Connect: {{ email }} </p>
+    <button class="schoolButtons" type="button" onclick="window.location.href='/college?college={{college}}'">Colleges</button>
+    <br>
+    <button class="schoolButtons" type="button" onclick="window.location.href='/highschool?highschool={{highschool}}'">Highschool</button>
+    <br><br>
+    <a href="/login"> Log Out</a>
+    <br>
   </body>
 </html>
