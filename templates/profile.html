@@ -3,7 +3,11 @@
     <link rel="stylesheet" href="../static/profiles.css">
     <title> {{ name }} | Profile</title>
   </head>
-  <body>
+  <body id=profile>
+    <div id=main>
+      <div id=bg>
+    </div>
+    <div id=second>
     <h1>{{ name }}</h1>
     <p class="profileInfo">Graduated from {{ highschool }}.</p>
     <p class="profileInfo">Will be going to {{ college }}.</p>
@@ -13,8 +17,13 @@
     <button class="schoolButtons" type="button" onclick="window.location.href='/highschool?hslong={{hslong}}'">Highschool</button>
     <br>
     <button class="schoolButtons" type="button" onclick="window.location.href='/map'">View Map</button>
-    <br><br>
-    <a href="/login"> Log Out</a>
+    <br>
+    <br>
+    <br>
+    <button class="schoolButtons" type="button" onclick="window.location.href='/map'">Continue my Freshman 15 later --> </button>
+  <!-- <a href="/login">Continue my Freshman 15 later --> </a>
+  </div>
+</div>
     <br>
   </body>
 </html>
