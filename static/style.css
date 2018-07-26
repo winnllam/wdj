@@ -10,14 +10,14 @@
   text-align: center;
 } */
 
-body {
+#signup {
     background-image: url("https://www.evms.edu/media/evms_public/departments/health_professions/medical_masters/mm-placements.png ");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-h1 {
+#QUAD {
     text-align: center;
     font-size: 100px;
     margin-top: 4%;
@@ -34,7 +34,7 @@ h2 {
 
 h3 {
     text-align: center;
-    font-size: 35px;
+    font-size: 40px;
     font-family: Arial;
     text-decoration: underline;
 }
@@ -53,9 +53,132 @@ font-size: 20px;
   font-size: 40px;
   margin-left: 450;
   -webkit-appearance: button;
-
 }
 
+.Username {
+font-size: 50px;
+text-align: center;
+color: White;
+font-family: Arial;
+}
+
+#login {
+  background-image: url("https://lh3.googleusercontent.com/u-vsii2TjV2H93sRk-rLyVqkRvRx_4PT0iW1QKXtV5EVIP17GYUbDK3NkOXq12y1HQnwYDNQzto2HIOTYDLVVIGAB-FlYamcxSJSNpcnT695wFQl_5lILQQBcxS82vj4cLH-4krnrHExUkenAg1kCuOIb_odbF6RUwLlf83N6VlWyJKDnDJ95tKQSvhD1Btj4JBUYL9JZc7fgpBNjWi-Z4_wxTrV-X-JYACnBDRYpMIrUMo5MRWjYnywQzE5FglDfyK3g7btOw0oxTWGuLOFt8MqQ_jHOZq9pXlgQEHLOyb5Z5p7dgXa0G5kptwxWvxOUyqtiFIYvua3BLxyeFkUCfEYVPMf0y5sW5nQBIs3S5AVtmCoHGdfTQxnroImqaXZ3M4qweh1JHyv6XMCurfkh7erwlpOfXkV6p48THwZudalBqTUfDjQrd5PuU6GoPjzFMcK5qRVQmv7RaGMuWfmrziAXQ7jS46NxNdaNcRh7E3or8_1xJP5gSJwQ_yGwhAIpIXSKxn-v5Jic-sZ1miXVziZZQvtXzw-EC5b4dEuLGocALdkuq538QVTylFK4620mO-H5iI_MuC1grL7O1t5vKJaJmysqqx3dFf6iGq6C4nnKTbhBGwjB1LMRlcMTQ2fxrKUx3-SLBogIQG7ruI4hIB50MlCJInTPw=w1248-h826-no");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 60% 100%;
+  background-color: tan;
+}
+
+#input2 {
+  width: 15%;
+  font-size: 40px;
+}
+
+h1 {
+  font-size: 100px;
+  color: LightBlue;
+  text-align: center;
+  text-decoration: underline;
+  font-family: Impact;
+  margin-top: 10%;
+}
+
+#ready {
+  font-size: 40px;
+  margin-left: 450;
+  -webkit-appearance: button;
+  font-family: Arial;
+}
+
+#tph {
+    border-radius: 50%;
+    flex: 0 0 30px;
+    margin-bottom: 20%;
+    width: 150px;
+    height: 150px;
+    margin-left: 30px;
+}
+
+#lpic {
+  /* display: flex; */
+  position: fixed;
+  padding: 20px;
+  left: 0;
+  top: 0;
+  width: 15%;
+  font-size: 20px;
+  /*float:left;
+  margin-top:20%;
+  margin-right:40%;*/
+}
+
+#lpicb {
+  /* display: flex; */
+  position: fixed;
+  padding: 20px;
+  left: 0;
+  bottom: -20;
+  width: 15%;
+  height: 10%;
+  float:left;
+  margin-bottom: 20%;
+  margin-right:40%;
+  font-size: 20px;
+}
+
+#Di {
+  border-radius: 50%;
+  flex: 0 0 30px;
+  margin-bottom: 20%;
+  width: 150px;
+  height: 150px;
+  margin-left: 30px;
+}
+
+#rpic {
+  /* display: flex; */
+  position: fixed;
+  right: 0;
+  padding: 20px;
+  top: 0;
+  width: 15%;
+  float:right;
+  margin-top:0%;
+  margin-left:70%;
+  font-size: 20px;
+}
+
+#KM {
+  border-radius: 50%;
+  flex: 0 0 30px;
+  margin-bottom: 25%;
+  width: 150px;
+  height: 150px;
+}
+
+#rpicb {
+  /* display: flex; */
+  position: fixed;
+  padding: 25px;
+  right: 0;
+  bottom: 10;
+  width: 15%;
+  float:right;
+  /*margin-bottom: 5%;*/
+  margin-top:115px;
+  margin-left:70%;
+  font-size: 20px;
+  height:53%;
+}
+
+#sb {
+  border-radius: 50%;
+  flex: 0 0 30px;
+  margin-bottom: 25%;
+  width: 150px;
+  height: 150px;
+}
 /*.responsive {
     width: 100%;
     height: auto;
