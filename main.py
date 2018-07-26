@@ -100,8 +100,7 @@ class RetrieveProfile(webapp2.RequestHandler):
             "name": student.name,
             "highschool": student.highschool,
             "college": student.college,
-            "city1": student.city1,
-            "state1": student.state1
+            "email": student.email
         })
         self.response.write(html)
 # DISPLAY EVERYONE IN THE SAME HIGHSCHOOL

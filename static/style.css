@@ -63,28 +63,38 @@ font-family: Arial;
 }
 
 #login {
-  background-image: url("https://lh3.googleusercontent.com/u-vsii2TjV2H93sRk-rLyVqkRvRx_4PT0iW1QKXtV5EVIP17GYUbDK3NkOXq12y1HQnwYDNQzto2HIOTYDLVVIGAB-FlYamcxSJSNpcnT695wFQl_5lILQQBcxS82vj4cLH-4krnrHExUkenAg1kCuOIb_odbF6RUwLlf83N6VlWyJKDnDJ95tKQSvhD1Btj4JBUYL9JZc7fgpBNjWi-Z4_wxTrV-X-JYACnBDRYpMIrUMo5MRWjYnywQzE5FglDfyK3g7btOw0oxTWGuLOFt8MqQ_jHOZq9pXlgQEHLOyb5Z5p7dgXa0G5kptwxWvxOUyqtiFIYvua3BLxyeFkUCfEYVPMf0y5sW5nQBIs3S5AVtmCoHGdfTQxnroImqaXZ3M4qweh1JHyv6XMCurfkh7erwlpOfXkV6p48THwZudalBqTUfDjQrd5PuU6GoPjzFMcK5qRVQmv7RaGMuWfmrziAXQ7jS46NxNdaNcRh7E3or8_1xJP5gSJwQ_yGwhAIpIXSKxn-v5Jic-sZ1miXVziZZQvtXzw-EC5b4dEuLGocALdkuq538QVTylFK4620mO-H5iI_MuC1grL7O1t5vKJaJmysqqx3dFf6iGq6C4nnKTbhBGwjB1LMRlcMTQ2fxrKUx3-SLBogIQG7ruI4hIB50MlCJInTPw=w1248-h826-no");
+  background-image: url("https://lh3.googleusercontent.com/71G_yxNEQbW4B0LI4eXu2Hhh0pnp90cZ5NFcejKn-jqA2tkWVdToOYjR9TsXrpEhe0VRAboFrt0nXY-g_-lCvOtNylCcOVcAxUVvPQXkuu5ikJEOU5ojeQLlpfKJv3iqZZLrpdRV5IzCW9PfOki7z4Dnhb-1jOeTSCScSLH5QP7Uo7dV2bFaExdu7Z-efcyF0p2m-jqCHQmZKLPZZ6dddhnsYzI7LzkKDg7XV3pdbR_7FNAevD-orLgjG1EziTdFonYLyKZA93zmzzv5YBcF7XqnC88nw_1c_OZi_wDJsh8TLFjdYj1pU7YjvYfmjV-wcfv2xesM6HvDRcZ1J4rdwzYdjbL80RVrcGGJcd9b_m6kUTNsWWoCJQuL3R-zwZJc_pVoDo0cB_CgSTBIuOqyDbC84lzKHeYt9i0fUkR2nDcFVX6Vv_0a_53ESREYRoLpopX6uzfqqXCZZBulEaBQz725KAXeeFgjGvTOKo7CsWdRbuGLB7RTwKhJQBu7ErRjEUuFwHI9-tw4FAp0UpVCsMOsPf5rqSIiaea2_fZMOGzZ0davlZkJaaTsebS4xWBNRqu6RB4m69yq_PCPuL-7ch_ElTyxL0eoHaUBBX1gGRlQqj8byQJZDPoj4AVGrljaTtWTLbP9uRRNeqdFkgoZfN68xLlR2381sg=w1248-h826-no");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 60% 100%;
   background-color: tan;
 }
 
-#input2 {
+/* #id {
   width: 15%;
   font-size: 40px;
-}
+} */
 
 h1 {
   font-size: 100px;
-  color: LightBlue;
+  color: Brown;
   text-align: center;
   text-decoration: underline;
   font-family: Impact;
-  margin-top: 10%;
+  margin-top: 3%;
 }
 
-#ready {
+#email {
+  font-size: 40px;
+  margin-left: 550;
+  margin-right: 450;
+  -webkit-appearance: button;
+  font-family: Arial;
+  margin-top: 10%;
+
+}
+
+#login2 {
   font-size: 40px;
   margin-left: 450;
   -webkit-appearance: button;
@@ -179,6 +189,26 @@ h1 {
   width: 150px;
   height: 150px;
 }
+
+#main {
+    background-image: url("https://lh3.googleusercontent.com/u-vsii2TjV2H93sRk-rLyVqkRvRx_4PT0iW1QKXtV5EVIP17GYUbDK3NkOXq12y1HQnwYDNQzto2HIOTYDLVVIGAB-FlYamcxSJSNpcnT695wFQl_5lILQQBcxS82vj4cLH-4krnrHExUkenAg1kCuOIb_odbF6RUwLlf83N6VlWyJKDnDJ95tKQSvhD1Btj4JBUYL9JZc7fgpBNjWi-Z4_wxTrV-X-JYACnBDRYpMIrUMo5MRWjYnywQzE5FglDfyK3g7btOw0oxTWGuLOFt8MqQ_jHOZq9pXlgQEHLOyb5Z5p7dgXa0G5kptwxWvxOUyqtiFIYvua3BLxyeFkUCfEYVPMf0y5sW5nQBIs3S5AVtmCoHGdfTQxnroImqaXZ3M4qweh1JHyv6XMCurfkh7erwlpOfXkV6p48THwZudalBqTUfDjQrd5PuU6GoPjzFMcK5qRVQmv7RaGMuWfmrziAXQ7jS46NxNdaNcRh7E3or8_1xJP5gSJwQ_yGwhAIpIXSKxn-v5Jic-sZ1miXVziZZQvtXzw-EC5b4dEuLGocALdkuq538QVTylFK4620mO-H5iI_MuC1grL7O1t5vKJaJmysqqx3dFf6iGq6C4nnKTbhBGwjB1LMRlcMTQ2fxrKUx3-SLBogIQG7ruI4hIB50MlCJInTPw=w1248-h826-no");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#Plus {
+  font-size: 100px;
+  color: LightBlue;
+  text-align: center;
+  text-decoration: underline;
+  font-family: Impact;
+  margin-top: 10%;
+}
+
+#SignUp
+
+#LogIn 
 /*.responsive {
     width: 100%;
     height: auto;
