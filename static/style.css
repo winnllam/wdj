@@ -89,10 +89,9 @@ h1 {
   font-size: 40px;
   margin-left: 550;
   margin-right: 450;
-  -webkit-appearance: button;
   font-family: Arial;
   margin-top: 10%;
-
+  color: white;
 }
 
 #login2 {

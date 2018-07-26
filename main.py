@@ -49,12 +49,9 @@ class PersonHandler(webapp2.RequestHandler):
         trivia_as_json2 = json.loads(trivia_response2)
         person.collat = float(trivia_as_json2['results'][0]['geometry']['location']['lat'])
         person.collong = float(trivia_as_json2['results'][0]['geometry']['location']['lng'])
-
         person.put()
-    #    key=person.put()
-        self.response.write("Profile created!")
+        self.redirect("/map") # auto redirect to map #### LOGIN TO SIGNUP
 
-    #    print(key.get())
 #DISPLAYSEVERYON DISPLAYSEVERYONE DISPLAYEVERYONE
 class PersonFile(webapp2.RequestHandler):
     def get(self):
@@ -121,7 +118,7 @@ class RetrieveCollege(webapp2.RequestHandler):
     def get(self):
         query = model.Person.query().filter(model.Person.college == self.request.get("college"))
         school = query.fetch()
-        student = query.get()
+        student = query.get() ### based of long and lat
         list_template = jinja_env.get_template('templates/college.html')
         html = list_template.render({
             "college": student.college,
@@ -141,5 +138,4 @@ app = webapp2.WSGIApplication([
     ('/profile', RetrieveProfile),
     ('/highschool', RetrieveHighschool),
     ('/college', RetrieveCollege),
-    ('/map', MapHandler)
 ], debug = True)
