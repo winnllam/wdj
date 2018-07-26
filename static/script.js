@@ -8,8 +8,8 @@ function httpGet(theUrl) {
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 3,
-    center: {lat: 0, lng: 0},
+    zoom: 4,
+    center: {lat: 45, lng: -75},
     mapTypeId: 'terrain'
   });
   const pairs = httpGet("/latlong")
@@ -20,10 +20,11 @@ function initMap() {
       {lat: pair.collat, lng: pair.collong}
       // college latlong
     ];
+
     var flightPath = new google.maps.Polyline({
       path: flightPlanCoordinates,
       geodesic: true,
-      strokeColor: '#FF0000',
+      strokeColor: '#'+(Math.random()*0xFFFFFF<<0).toString(16),
       strokeOpacity: 1.0,
       strokeWeight: 2
     });

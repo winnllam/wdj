@@ -138,5 +138,4 @@ app = webapp2.WSGIApplication([
     ('/profile', RetrieveProfile),
     ('/highschool', RetrieveHighschool),
     ('/college', RetrieveCollege),
-    ('/map', MapHandler)
 ], debug = True)
