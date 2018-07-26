@@ -2,9 +2,9 @@ import jinja2
 import os
 import webapp2
 import model
-from webapp2_extras import json
-from google.appengine.api import urlfetch
 import json
+from google.appengine.api import urlfetch
+import urllib
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
@@ -38,17 +38,22 @@ class PersonHandler(webapp2.RequestHandler):
         person.highschool = self.request.get("highschool")
         person.city1 = self.request.get("city1")
         person.state1 = self.request.get("state1")
-        person.hslat = 0.0
-        person.hslong = 0.0
         person.college = self.request.get("college")
         person.city2 = self.request.get("city2")
         person.state2 = self.request.get("state2")
-        person.collat = 0.0
-        person.collong = 0.0
+        trivia_response = urlfetch.fetch("https://maps.googleapis.com/maps/api/geocode/json?address="+urllib.quote_plus(person.highschool + ",+" + person.city1 + ",+" + person.state1)+"&key=AIzaSyDanzu3x3EEBjImVNBU_XZPqzcAK2b-mb4").content
+        trivia_as_json = json.loads(trivia_response)
+        person.hslat = float(trivia_as_json['results'][0]['geometry']['location']['lat'])
+        person.hslong = float(trivia_as_json['results'][0]['geometry']['location']['lng'])
+        trivia_response2 = urlfetch.fetch("https://maps.googleapis.com/maps/api/geocode/json?address="+urllib.quote_plus(person.college + ",+" + person.city2 + ",+" + person.state2)+"&key=AIzaSyDanzu3x3EEBjImVNBU_XZPqzcAK2b-mb4").content
+        trivia_as_json2 = json.loads(trivia_response2)
+        person.collat = float(trivia_as_json2['results'][0]['geometry']['location']['lat'])
+        person.collong = float(trivia_as_json2['results'][0]['geometry']['location']['lng'])
 
         person.put()
     #    key=person.put()
         self.response.write("Profile created!")
+
     #    print(key.get())
 #DISPLAYSEVERYON DISPLAYSEVERYONE DISPLAYEVERYONE
 class PersonFile(webapp2.RequestHandler):
@@ -70,14 +75,14 @@ class Personlatlong(webapp2.RequestHandler):
             latlong=[]
             for person in all_people:
                 latlong.append({
-                "lat1":person.lat1,
-                "long1":person.long1,
-                "lat2":person.lat2,
-                "long2":person.long2
+                "hslat":person.hslat,
+                "hslong":person.hslong,
+                "collat":person.collat,
+                "collong":person.collong
                 })
             return latlong
         person_dictionaries= persontodict(all_people)
-        self.response.write(json.encode(person_dictionaries))
+        self.response.write(json.dumps(person_dictionaries))
 #LOGIN LOGIN LOGIN
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
