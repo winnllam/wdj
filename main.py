@@ -50,7 +50,7 @@ class PersonHandler(webapp2.RequestHandler):
         person.collat = float(trivia_as_json2['results'][0]['geometry']['location']['lat'])
         person.collong = float(trivia_as_json2['results'][0]['geometry']['location']['lng'])
         person.put()
-        self.redirect("/map") # auto redirect to map
+        self.redirect("/map") # auto redirect to map #### LOGIN TO SIGNUP
 
 #DISPLAYSEVERYON DISPLAYSEVERYONE DISPLAYEVERYONE
 class PersonFile(webapp2.RequestHandler):
@@ -118,7 +118,7 @@ class RetrieveCollege(webapp2.RequestHandler):
     def get(self):
         query = model.Person.query().filter(model.Person.college == self.request.get("college"))
         school = query.fetch()
-        student = query.get()
+        student = query.get() ### based of long and lat
         list_template = jinja_env.get_template('templates/college.html')
         html = list_template.render({
             "college": student.college,

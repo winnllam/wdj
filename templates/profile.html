@@ -1,7 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="../static/profiles.css">
-    <title></title>
+    <title> {{ name }} | Profile</title>
   </head>
   <body>
     <h1>{{ name }}</h1>
@@ -11,6 +11,8 @@
     <button class="schoolButtons" type="button" onclick="window.location.href='/college?college={{college}}'">Colleges</button>
     <br>
     <button class="schoolButtons" type="button" onclick="window.location.href='/highschool?highschool={{highschool}}'">Highschool</button>
+    <br>
+    <button class="schoolButtons" type="button" onclick="window.location.href='/map'">View Map</button>
     <br><br>
     <a href="/login"> Log Out</a>
     <br>
