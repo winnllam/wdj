@@ -20,10 +20,11 @@ function initMap() {
       {lat: pair.collat, lng: pair.collong}
       // college latlong
     ];
+
     var flightPath = new google.maps.Polyline({
       path: flightPlanCoordinates,
       geodesic: true,
-      strokeColor: '#FF0000',
+      strokeColor: '#'+(Math.random()*0xFFFFFF<<0).toString(16),
       strokeOpacity: 1.0,
       strokeWeight: 2
     });
