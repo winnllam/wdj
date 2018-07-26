@@ -107,7 +107,7 @@ class RetrieveProfile(webapp2.RequestHandler):
 # DISPLAY EVERYONE IN THE SAME HIGHSCHOOL
 class RetrieveHighschool(webapp2.RequestHandler):
     def get(self):
-        query = model.Person.query().filter(model.Person.hslong == float(self.request.get("hslong")))
+        query = model.Person.query().filter(model.Person.highschool == self.request.get("highschool"))
         school = query.fetch()
         student = query.get()
         list_template = jinja_env.get_template('templates/highschool.html')
@@ -120,7 +120,7 @@ class RetrieveHighschool(webapp2.RequestHandler):
 #DISPLAY EVERYONE IN THE SAME COLLEGE
 class RetrieveCollege(webapp2.RequestHandler):
     def get(self):
-        query = model.Person.query().filter(model.Person.collong == float(self.request.get("collong")))
+        query = model.Person.query().filter(model.Person.college == self.request.get("college"))
         school = query.fetch()
         student = query.get() ### based of long and lat
         list_template = jinja_env.get_template('templates/college.html')
