@@ -1,17 +1,61 @@
 h1 {
   text-align: center;
-  font-size: 50px;
+  font-size: 70px;
+  text-decoration: underline;
+  color: Brown;
+  margin-top: 10%;
+  margin-right: 10%;
+  font-weight: bold;
 }
 
 .profileInfo {
   text-align: center;
-}
-
-#buttons {
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 30px;
+  color: Brown;
+  margin-right: 10%;
+  font-weight: bold;
 }
 
 .schoolButtons {
-  width: 100px;
+  width: 40%;
+  margin-left:25%;
+  margin-right: 35%;
+  font-size: 20px;
 }
+
+/* #profile {
+    background-image: url("http://iit.edu/news/iittoday/wp-content/uploads/15204/Freshman%2015.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity:0.5;
+    filter: alpha(opacity=50);
+  } */
+
+  #main{
+  position:relative;
+  }
+  div#bg{
+  background-image: url("https://calendarmedia.blob.core.windows.net/assets/2b8c85fb-4cfc-4b16-95ee-a2322c3377da-small.png");
+  opacity:0.5;
+  width:1400px;
+  height:800px;
+  background-size: cover;
+  background-position: center;
+  /* background-repeat: space; */
+  }
+  div#second{
+  width:1650px;
+  height:1275px;
+  position:absolute;
+  top: 0;
+  left:0;
+  }
+
+/* div#bg {
+    background-image: url("http://iit.edu/news/iittoday/wp-content/uploads/15204/Freshman%2015.jpg");
+    opacity:0.5;
+    filter: alpha(opacity=50);
+    height: 1275px;
+    width:1650;
+  } */
