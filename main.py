@@ -49,12 +49,9 @@ class PersonHandler(webapp2.RequestHandler):
         trivia_as_json2 = json.loads(trivia_response2)
         person.collat = float(trivia_as_json2['results'][0]['geometry']['location']['lat'])
         person.collong = float(trivia_as_json2['results'][0]['geometry']['location']['lng'])
-
         person.put()
-    #    key=person.put()
-        self.response.write("Profile created!")
+        self.redirect("/map") # auto redirect to map
 
-    #    print(key.get())
 #DISPLAYSEVERYON DISPLAYSEVERYONE DISPLAYEVERYONE
 class PersonFile(webapp2.RequestHandler):
     def get(self):
