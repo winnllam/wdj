@@ -3,6 +3,8 @@ import os
 import webapp2
 import model
 from webapp2_extras import json
+from google.appengine.api import urlfetch
+import json
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
@@ -27,7 +29,7 @@ class SignUpHandler(webapp2.RequestHandler):
         sign_up_template = jinja_env.get_template('templates/signup.html')
         html = sign_up_template.render()
         self.response.write(html)
-
+#USERINPUT USERINPUT USERINPUT
 class PersonHandler(webapp2.RequestHandler):
     def post(self):
         person = model.Person()
@@ -55,7 +57,7 @@ class PersonFile(webapp2.RequestHandler):
             "people": all_people
         })
         self.response.write(html)
-
+# JSON JSON JSON JSON JSON JSON
 class Personlatlong(webapp2.RequestHandler):
     def get(self):
         person_query = model.Person.query()
@@ -73,13 +75,13 @@ class Personlatlong(webapp2.RequestHandler):
             return latlong
         person_dictionaries= persontodict(all_people)
         self.response.write(json.encode(person_dictionaries))
-
+#LOGIN LOGIN LOGIN
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
         login_template = jinja_env.get_template('templates/login.html')
         html = login_template.render()
         self.response.write(html)
-
+#DISPLAY PROFILE BASED ON EMAIL
 class RetrieveProfile(webapp2.RequestHandler):
     def get(self):
         query = model.Person.query().filter(model.Person.email == self.request.get("email"))
@@ -93,7 +95,7 @@ class RetrieveProfile(webapp2.RequestHandler):
             "email": student.email
         })
         self.response.write(html)
-
+# DISPLAY EVERYONE IN THE SAME HIGHSCHOOL
 class RetrieveHighschool(webapp2.RequestHandler):
     def get(self):
         query = model.Person.query().filter(model.Person.highschool == self.request.get("highschool"))
@@ -106,7 +108,7 @@ class RetrieveHighschool(webapp2.RequestHandler):
             "email": student.email
         })
         self.response.write(html)
-
+#DISPLAY EVERYONE IN THE SAME COLLEGE
 class RetrieveCollege(webapp2.RequestHandler):
     def get(self):
         query = model.Person.query().filter(model.Person.college == self.request.get("college"))
@@ -119,7 +121,7 @@ class RetrieveCollege(webapp2.RequestHandler):
             "email": student.email
         })
         self.response.write(html)
-
+#TABS TABS TABS
 app = webapp2.WSGIApplication([
     ('/', MainHandler), # asking for slash, construct main handlers
     ('/signup', SignUpHandler),
