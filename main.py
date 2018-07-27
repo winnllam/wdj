@@ -110,9 +110,11 @@ class RetrieveHighschool(webapp2.RequestHandler):
         results = model.Person.query().fetch()
         schools = []
         for person in results:
-            if round(person.hslong, 6) == float(self.request.get("hslong")): # && hslat
+            if round(person.hslat, 6) == round(float(self.request.get("hslat")), 6):
                 schools.append(person)
-        print('Searching high school', float(self.request.get("hslong")), 'found', schools)
+            else:
+                print(round(person.hslat, 6), 'is not equal to', round(float(self.request.get("hslat")), 6))
+        print('Searching high school', float(self.request.get("hslat")), 'found', schools)
         list_template = jinja_env.get_template('templates/highschool.html')
         html = list_template.render({
             "highschool": self.request.get("highschool"),
@@ -126,7 +128,7 @@ class RetrieveCollege(webapp2.RequestHandler):
         results = model.Person.query().fetch()
         schools = []
         for person in results:
-            if round(person.collat, 6) == float(self.request.get("collat")): # && hslat
+            if round(person.collat, 6) == round(float(self.request.get("collat")), 6):
                 schools.append(person)
         print('Searching college', float(self.request.get("collat")), 'found', schools)
         list_template = jinja_env.get_template('templates/college.html')
