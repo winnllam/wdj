@@ -112,9 +112,9 @@ class RetrieveHighschool(webapp2.RequestHandler):
         student = query.get()
         list_template = jinja_env.get_template('templates/highschool.html')
         html = list_template.render({
-            "highschool": student.highschool,
-            "highschoolList": school,
-            "email": student.email
+            # "highschool": student.highschool,
+            # # "highschoolList": student.school,
+            # "email": student.email
         })
         self.response.write(html)
 #DISPLAY EVERYONE IN THE SAME COLLEGE
