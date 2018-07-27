@@ -1,0 +1,96 @@
+#hs {
+  background-image: url("http://joemiller.us/wp-content/uploads/high-school.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#head {
+  font-size: 100px;
+  color: Black;
+  text-align: center;
+  text-decoration: underline;
+  font-family: Impact;
+  margin-top: 2%;
+}
+
+#slogan {
+  font-size: 40px;
+  color: Black;
+  text-align: center;
+  font-style: italic;
+  font-family: Arial;
+  margin-top: 3%;
+}
+
+#shs {
+  font-size: 40px;
+  color: Black;
+  /* text-align: center; */
+  text-decoration: underline;
+  font-family: Arial;
+  font-weight: bold;
+  margin-top: 4%;
+}
+
+#shs2 {
+  font-size: 30px;
+  color: Black;
+  /* text-align: center; */
+  text-decoration: underline;
+  font-family: Arial;
+  margin-top: 5%;
+}
+
+#c {
+background-image: url("https://enrollment.rochester.edu/blog/wp-content/uploads/2018/01/college-1516569592.jpg");
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+#head2 {
+    font-size: 100px;
+    color: Black;
+    text-align: center;
+    text-decoration: underline;
+    font-family: Impact;
+    margin-top: 2%;
+}
+
+#slogan2 {
+  font-size: 40px;
+  color: Black;
+  text-align: center;
+  font-style: italic;
+  font-family: Arial;
+  margin-top: 3%;
+}
+
+#college1 {
+  font-size: 40px;
+  color: Black;
+  /* text-align: center; */
+  text-decoration: underline;
+  font-family: Arial;
+  margin-top: 4%;
+  margin-left: 60%;
+}
+
+#college2 {
+  font-size: 30px;
+  color: Black;
+  /* text-align: center; */
+  text-decoration: underline;
+  font-family: Arial;
+  margin-top: 6%;
+  margin-left: 60%;
+}
+
+.schoolButtons {
+  width: 40%;
+  margin-left:55%;
+  margin-right: 35%;
+  margin-top: 18%;
+  font-size: 20px;
+}
