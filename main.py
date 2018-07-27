@@ -107,27 +107,33 @@ class RetrieveProfile(webapp2.RequestHandler):
 # DISPLAY EVERYONE IN THE SAME HIGHSCHOOL
 class RetrieveHighschool(webapp2.RequestHandler):
     def get(self):
-        query = model.Person.query().filter(model.Person.highschool == self.request.get("highschool"))
-        school = query.fetch()
-        student = query.get()
+        results = model.Person.query().fetch()
+        schools = []
+        for person in results:
+            if round(person.hslong, 6) == float(self.request.get("hslong")): # && hslat
+                schools.append(person)
+        print('Searching high school', float(self.request.get("hslong")), 'found', schools)
         list_template = jinja_env.get_template('templates/highschool.html')
         html = list_template.render({
-            # "highschool": student.highschool,
-            # # "highschoolList": student.school,
-            # "email": student.email
+            "highschool": self.request.get("highschool"),
+            "highschoolList": schools,
+            "email": self.request.get("email")
         })
         self.response.write(html)
 #DISPLAY EVERYONE IN THE SAME COLLEGE
 class RetrieveCollege(webapp2.RequestHandler):
     def get(self):
-        query = model.Person.query().filter(model.Person.college == self.request.get("college"))
-        school = query.fetch()
-        student = query.get() ### based of long and lat
+        results = model.Person.query().fetch()
+        schools = []
+        for person in results:
+            if round(person.collat, 6) == float(self.request.get("collat")): # && hslat
+                schools.append(person)
+        print('Searching college', float(self.request.get("collat")), 'found', schools)
         list_template = jinja_env.get_template('templates/college.html')
         html = list_template.render({
-            "college": student.college,
-            "collegeList": school,
-            "email": student.email
+            "college": self.request.get("college"),
+            "collegeList": schools,
+            "email": self.request.get("email")
         })
         self.response.write(html)
 #TABS TABS TABS
