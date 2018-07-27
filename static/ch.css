@@ -25,7 +25,8 @@
 
 #shs {
   font-size: 40px;
-  color: Black;
+  color: black;
+  text-shadow: 2px 2px white;
   /* text-align: center; */
   text-decoration: underline;
   font-family: Arial;
@@ -36,6 +37,7 @@
 #shs2 {
   font-size: 30px;
   color: Black;
+  text-shadow: 2px 2px white;
   /* text-align: center; */
   text-decoration: underline;
   font-family: Arial;
@@ -70,6 +72,7 @@ background-size: cover;
 #college1 {
   font-size: 40px;
   color: Black;
+  text-shadow: 2px 2px white;
   /* text-align: center; */
   text-decoration: underline;
   font-family: Arial;
@@ -80,6 +83,7 @@ background-size: cover;
 #college2 {
   font-size: 30px;
   color: Black;
+  text-shadow: 2px 2px white;
   /* text-align: center; */
   text-decoration: underline;
   font-family: Arial;
@@ -91,6 +95,18 @@ background-size: cover;
   width: 40%;
   margin-left:55%;
   margin-right: 35%;
-  margin-top: 18%;
+  margin-top: 10%;
   font-size: 20px;
+}
+
+#para {
+  font-size: 25px;
+  color: black;
+  margin-left: 10%;
+}
+
+#para2 {
+  font-size: 25px;
+  color: black;
+  margin-left: 60%;
 }

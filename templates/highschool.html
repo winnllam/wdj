@@ -9,7 +9,7 @@
     <h3 id=shs>Students at {{ highschool }}</h3>
     <h4 id=shs2>Here are the students signed up:</h4>
     {% for person in highschoolList %} <!-- for loop in html -->
-      <p>{{ person.name }} is going to {{ person.college }}. <a href="/profile?email={{person.email}}">See Profile</a></p>
+      <p id=para>{{ person.name }} is going to {{ person.college }}. <a href="/profile?email={{person.email}}">See Profile</a></p>
     {% endfor %}
     <br>
     <button class="schoolButtons" type="button" onclick="window.location.href='/profile?email={{email}}'">Go back to profile</button>
