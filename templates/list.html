@@ -1,12 +1,14 @@
 <html>
   <head>
+    <link rel="stylesheet" href="../static/ch.css">
     <title>Student List</title>
   </head>
-  <body>
-    <h1> <center> Student List</h1>
-    <h2>  <center> Here are the students who signed up:</h2>
+  <body id=list>
+    <h1 id=title> <center> Others gaining their Freshman 15</center></h1>
+    <h2 id=title2>  <center> Here are the students who signed up:</center></h2>
     {% for person in people %} <!-- for loop in html -->
-      <p>  <center> {{ person.name }} graduated from {{ person.highschool }} and is going to {{ person.college }}.</p>
+      <div>  <center> <span id=shad>{{ person.name }} graduated from {{ person.highschool }} and is going to {{ person.college }}.</span></center></div>
     {% endfor %}
+    <button id=button class="schoolButtons" type="button" onclick="window.location.href='/map'">Back to Map</button>
     </body>
 </html>

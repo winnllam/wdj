@@ -110,3 +110,36 @@ background-size: cover;
   color: black;
   margin-left: 60%;
 }
+
+#list {
+  background-image: url("https://kentcollegesearch.files.wordpress.com/2012/06/ucinnbldg15.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#title {
+  font-size: 50px;
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 1%;
+}
+
+#title2 {
+  text-align:center;
+}
+
+#shad {
+  font-size:15px;
+  color: black;
+  background-color: white;
+  /* text-shadow: 2px 2px white; */
+}
+
+#button {
+  width: 40%;
+  margin-left:55%;
+  margin-right: 35%;
+  margin-top: 35%;
+  font-size: 20px;
+}
