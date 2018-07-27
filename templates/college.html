@@ -3,12 +3,14 @@
     <link rel="stylesheet" href="../static/ch.css">
     <title>{{ college }}</title>
   </head>
-  <body>
-    <h1>Students at {{ college }}</h1>
-    <h2>Here are the students signed up:</h2>
+  <body id=c>
+    <h1 id=head2>QUAD+</h1>
+    <h2 id=slogan2>"Earn your Freshman 15 in friends and not pounds"</h2>
+    <h3 id=college1>Students at {{ college }}</h3>
+    <h4 id=college2>Here are the students signed up:</h4>
     {% for person in collegeList %} <!-- for loop in html -->
       <p>{{ person.name }} graduated from {{ person.highschool }}. <a href="/profile?email={{person.email}}">See Profile</a></p> <!-- click link to see profile -->
     {% endfor %}
-    <a href="/profile?email={{email}}">Go back to Profile</a>
   </body>
+  <button class="schoolButtons" type="button" onclick="window.location.href='/college?collat={{collat}}&email={{email}}&college={{college}}'">Go back to profile</button>
 </html>
